@@ -1,0 +1,21 @@
+
+
+
+{% block content %}
+
+
+<div class='col-sm-3 col-sm-offset-4' >
+<h1>{{title}}</h1>
+
+
+{% block head_extra %} 
+
+{% endblock head_extra %}
+
+<form method='POST' action='/' enctype='multipart/form-data'>{% csrf_token %}
+    {{ formset }}
+
+<input type='submit' action="" />
+</form>
+</div>
+{% endblock content %}
