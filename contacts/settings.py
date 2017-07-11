@@ -91,15 +91,10 @@ WSGI_APPLICATION = 'contacts.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'db_contacts',
-        'USER': 'db_contacts',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'mydata.db'),
     }
 }
-
 
 
 # Password validation
