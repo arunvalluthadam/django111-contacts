@@ -17,7 +17,7 @@ def manage_contacts(request):
          
     else:
         formset = ContactForm()
-        print "failed"
+        
     return render(request, 'contacts.html', {'formset': formset})
 
 
