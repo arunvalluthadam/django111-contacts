@@ -44,7 +44,7 @@ def delete(request, person_pk):
 def list_contacts(request):
      
  contact_list = Contacts.objects.all()
- print contact_list 
+  
 
  return render(request, 'contacts.html', {'contact_list' : contact_list })    		
 
