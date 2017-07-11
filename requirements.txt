@@ -1,0 +1,7 @@
+Django==1.11.3
+argparse==1.2.1
+django-crispy-forms==1.6.1
+django-favorite==0.0.1
+psycopg2==2.7.1
+pytz==2017.2
+wsgiref==0.1.2
