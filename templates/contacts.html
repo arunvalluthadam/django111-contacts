@@ -12,7 +12,18 @@
 {% block head_extra %} 
 
 {% endblock head_extra %}
+
+
+
+
 {% if formset %}
+
+
+
+
+
+<div class='col-sm-6 col-sm-offset-3'>
+  <h1> Add Contact </h1>
 
 <form class="" method='POST' action='' enctype='multipart/form-data'>{% csrf_token %}
    
@@ -22,6 +33,7 @@
 <input type='submit'  class="btn btn-primary" action="" />
 {% endif %} 
 </form>
+
 
    
 {% for contact in contact_list %}
@@ -43,12 +55,13 @@
       <tbody>
         <tr class="active">
           <td>{{contact.first_name}}</td>
-		  <td>{{contact.last_name}}</td>
-		  <td>{{contact.phone_number}}</td>
+		      <td>{{contact.last_name}}</td>
+		      <td>{{contact.phone_number}}</td>
           <td>{{contact.email}}</td>
-
-         <td><a href="/delete/{{ contact.id }}">Delete</a></td>
-         <td><a href="/edit/{{ contact.id }}">Edit/AddFavourite</a></td>
+          <td>{{contact.email}}</td>
+          <td class="thumbnail">{{contact.image}}</td>
+          <td><a href="/delete/{{ contact.id }}">Delete</a></td>
+          <td><a href="/edit/{{ contact.id }}">Edit/AddFavourite</a></td>
          {% if contact.favourite == True  %}
 <td><img src="http://1.bp.blogspot.com/-zfE6Op8SswI/VjmGEHgg5EI/AAAAAAAABq4/ctTK7SUykxo/s1600/yellow_star.png" alt="Mountain View" style="width:30px;height:30px;"> </td>
 {% endif %}
@@ -58,7 +71,7 @@
       </tbody>
     </table>
 </div>
-
+</div>
 
 
 
@@ -69,6 +82,13 @@
 {% endif %}
 
 {% endfor %}
+<div class="container">
+  <p class="navbar-text navbar-left">Search:{% csrf_token %}
+  <input type="text" id="search" name="search" />
+  <ul id='search-results'>
+  </ul> </a></p>
+  </ul>
+</div>
 
 {% endblock content %}
 </div>

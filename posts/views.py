@@ -48,4 +48,12 @@ def list_contacts(request):
 
  return render(request, 'contacts.html', {'contact_list' : contact_list })    		
 
+def search_view(request):
+
+    if request.POST:
+        search_text = request.POST['search_text']
+    else:
+        search_text = ''
+    contacts = Contacts.objects.filter(first_name__contains=search_text)
+    return render(request, 'ajax_search.html', {'contacts': contacts})
 

@@ -14,15 +14,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
+from django.conf.urls.static import static
+from django.conf import settings
 from django.contrib import admin
 from accounts.views import (login_view, register_view, logout_view)
-from posts.views import (manage_contacts, list_contacts, delete, edit_contacts)
+from posts.views import (manage_contacts, list_contacts, delete, edit_contacts, search_view)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     
     url(r'^accounts/login', login_view, name="login"),
     url(r'^register/', register_view, name="register"),
+
+    url(r'^search/$', search_view, name="search"),
     
     url(r'^delete/(?P<person_pk>.*)$', delete , name='delete-person'),
     url(r'^edit/(?P<person_pk>.*)$', edit_contacts , name='delete-person'),
@@ -32,7 +36,8 @@ urlpatterns = [
     url(r'^$', list_contacts),
    
     url(r'^logout/', logout_view, name='logout'),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
 
 
 
